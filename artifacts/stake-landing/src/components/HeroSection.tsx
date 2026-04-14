@@ -1,19 +1,12 @@
-import bgImage from "@assets/bg_1776168153956.png";
 import puzzleImage from "@assets/Frame_1_1776168153956.png";
 import jigsawPiece from "@assets/jigsaw_1776168153957.png";
 import arrow from "@assets/arrow_1776168153955.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden">
-      {/* Background — spans the full section including behind the navbar */}
-      <div className="absolute inset-0 z-0">
-        <img src={bgImage} alt="" className="w-full h-full object-cover" style={{ filter: "brightness(0.35)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(13,19,33,0.4) 0%, rgba(13,19,33,0.75) 60%, #0d1321 100%)" }} />
-      </div>
-
+    <section className="w-full">
       {/* Hero Text */}
-      <div className="relative z-10 flex flex-col items-center text-center px-5 pt-8 pb-6 sm:pt-12 sm:pb-10">
+      <div className="flex flex-col items-center text-center px-5 pt-6 pb-6 sm:pt-10 sm:pb-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl" style={{ letterSpacing: "-0.02em" }}>
           <span className="text-white">Discover </span>
           <span style={{ color: "#f97316" }}>high-growth</span>
@@ -35,12 +28,12 @@ export default function HeroSection() {
       </div>
 
       {/* Property Card */}
-      <div className="relative z-10 mx-4 sm:mx-8 lg:mx-auto lg:max-w-5xl">
+      <div className="mx-4 sm:mx-8 lg:mx-auto lg:max-w-5xl">
         <div
           className="rounded-2xl overflow-hidden flex flex-col md:flex-row"
           style={{ background: "rgba(15,22,40,0.6)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}
         >
-          {/* Puzzle Image — arrow lives inside here so it never overlaps the text panel */}
+          {/* Puzzle Image with arrow pinned to its right edge */}
           <div className="relative flex-1 min-h-[220px] sm:min-h-[280px] md:min-h-[320px]">
             <img src={puzzleImage} alt="Premium property" className="w-full h-full object-cover" />
 
@@ -49,25 +42,17 @@ export default function HeroSection() {
               <img src={jigsawPiece} alt="" className="w-full h-auto" />
             </div>
 
-            {/* Arrow — pinned to the right edge of the image, vertically centered, only on md+ */}
+            {/* Arrow at the right edge of the image on md+ */}
             <img
               src={arrow}
               alt=""
               className="hidden md:block absolute"
-              style={{
-                right: "-10px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                width: "clamp(80px, 9vw, 120px)",
-                filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.5))",
-                zIndex: 10,
-              }}
+              style={{ right: "-8px", top: "50%", transform: "translateY(-50%)", width: "clamp(80px, 9vw, 115px)", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.5))", zIndex: 10 }}
             />
           </div>
 
           {/* Right Panel */}
           <div className="flex flex-col justify-center px-6 py-7 md:px-8 md:py-8 md:w-72 lg:w-80 shrink-0">
-            {/* Arrow on mobile — inline above heading */}
             <img src={arrow} alt="" className="mb-4 w-24 md:hidden" />
 
             <h2 className="text-white font-extrabold leading-tight text-3xl sm:text-4xl" style={{ letterSpacing: "-0.02em" }}>
