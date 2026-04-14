@@ -16,6 +16,16 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### stake-landing (/)
+- React + Vite frontend-only landing page
+- Replicates the Stake property investment landing page design
+- Dark theme with orange (#f97316) accent color
+- Components: Navbar, HeroSection (bg image + puzzle property card), PriceProgression (batch grid)
+- Fully responsive — mobile hamburger menu, responsive grid layouts
+- Assets from attached_assets/ (bg, puzzle image, jigsaw piece, arrow)
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
