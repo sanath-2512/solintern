@@ -34,10 +34,31 @@ export default function HeroSection() {
         </button>
       </div>
 
-      {/* Property Card */}
+      {/* Property Card — outer wrapper is relative so arrow can be placed absolutely without being clipped */}
       <div className="relative z-10 mx-4 sm:mx-8 lg:mx-auto lg:max-w-5xl">
-        <div className="rounded-2xl overflow-hidden flex flex-col md:flex-row" style={{ background: "rgba(15,22,40,0.6)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}>
-          
+
+        {/* Arrow: absolutely positioned at the junction of the image and right panel, vertically centered */}
+        {/* On md: right panel is w-72 (288px), on lg: w-80 (320px). Arrow is 100px wide, centered on the line. */}
+        {/* md screens: right panel = w-72 (288px), arrow width 100px, so centered at right: 238px */}
+        <img
+          src={arrow}
+          alt=""
+          className="hidden md:block lg:hidden absolute z-20"
+          style={{ width: "100px", top: "50%", right: "238px", transform: "translateY(-50%)", filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.6))" }}
+        />
+        {/* lg screens: right panel = w-80 (320px), arrow width 110px, so centered at right: 265px */}
+        <img
+          src={arrow}
+          alt=""
+          className="hidden lg:block absolute z-20"
+          style={{ width: "110px", top: "50%", right: "265px", transform: "translateY(-50%)", filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.6))" }}
+        />
+
+        {/* Card */}
+        <div
+          className="rounded-2xl overflow-hidden flex flex-col md:flex-row"
+          style={{ background: "rgba(15,22,40,0.6)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}
+        >
           {/* Puzzle Image */}
           <div className="relative flex-1 min-h-[220px] sm:min-h-[280px] md:min-h-[320px]">
             <img src={puzzleImage} alt="Premium property" className="w-full h-full object-cover" />
@@ -48,7 +69,8 @@ export default function HeroSection() {
 
           {/* Right Panel */}
           <div className="flex flex-col justify-center px-6 py-7 md:px-8 md:py-8 md:w-72 lg:w-80 shrink-0">
-            <img src={arrow} alt="" className="mb-4 w-28 md:w-32 object-contain" />
+            {/* Arrow on mobile — inline */}
+            <img src={arrow} alt="" className="mb-4 w-24 md:hidden" />
 
             <h2 className="text-white font-extrabold leading-tight text-3xl sm:text-4xl" style={{ letterSpacing: "-0.02em" }}>
               Access<br />premium<br />property<br />ownership<br />
